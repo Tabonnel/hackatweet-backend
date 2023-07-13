@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const tweetsSchema = mongoose.Schema({
   username: String,
   firstname: String,
   content: String,
   date: Date,
-  likeCount:Number,
+  likeCount: Number,
   Image: String,
 });
 
-const Tweet = mongoose.model('tweets', tweetsSchema);
+const Tweet = mongoose.model("tweets", tweetsSchema);
 
 module.exports = Tweet;
