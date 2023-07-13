@@ -23,7 +23,7 @@ router.post("/signup", (req, res) => {
         firstname: req.body.firstname,
         password: hash,
         token: uid2(32),
-        canDelete: false,
+        canDelete: true,
         Image: "../frontend/public/icon.jpg",
       });
 
