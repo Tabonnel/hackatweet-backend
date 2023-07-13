@@ -14,12 +14,12 @@ router.post("/newtweet", (req, res) => {
     return;
   }
 
-  //définition de la date du tweet avec Moment 
-  const currentDate = moment().format("YYYY-MM-DD HH:mm:ss");
+  //définition de la date du tweet avec Moment
+  const currentDate = moment().format("YYYY-MM-DD HH:mm");
 
   const newTweet = new Tweet({
-    username: "exemple", //il faudra modifier ces 2 lignes pour récupérer dynamiquement le username et le firstname. 
-    firstname: "exemple",
+    username: "John", //il faudra modifier ces 2 lignes pour récupérer dynamiquement le username et le firstname.
+    firstname: `@JohnCena`,
     content: req.body.content,
     date: currentDate,
     likeCount: 0,
@@ -68,6 +68,13 @@ router.put("/:id/like", (req, res) => {
     .catch((error) => {
       res.json({ result: false, error: error.message });
     });
+});
+
+router.get("/alltweets", (req, res) => {
+  Tweet.find().then((data) => {
+    console.log(data);
+    res.json({ result: data });
+  });
 });
 
 module.exports = router;
