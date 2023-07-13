@@ -18,7 +18,7 @@ router.post("/newtweet", (req, res) => {
   const currentDate = moment().format("YYYY-MM-DD HH:mm:ss");
 
   const newTweet = new Tweet({
-    username: "exemple",
+    username: "exemple", //il faudra modifier ces 2 lignes pour récupérer dynamiquement le username et le firstname. 
     firstname: "exemple",
     content: req.body.content,
     date: currentDate,
